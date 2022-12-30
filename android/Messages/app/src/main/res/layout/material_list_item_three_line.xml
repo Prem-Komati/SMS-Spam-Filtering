@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="smsConversationsItem"
+            type="com.rushi.messages.modals.SmsConversationsItem" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:minHeight="60dp"
+        android:layout_margin="4dp"
+        android:clickable="true">
+
+        <ImageView
+            android:id="@+id/mtrl_list_item_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:src="@drawable/ic_baseline_account_circle_40"
+            android:tint="@{smsConversationsItem.avatarColor==1?@color/avatarYellow:smsConversationsItem.avatarColor==2?@color/avatarRed:smsConversationsItem.avatarColor==3?@color/avatarPurple:smsConversationsItem.avatarColor==4?@color/avatarPink:smsConversationsItem.avatarColor==5?@color/avatarOrange:smsConversationsItem.avatarColor==6?@color/avatarGreen:smsConversationsItem.avatarColor==7?@color/avatarCyan:smsConversationsItem.avatarColor==8?@color/avatarBlue:@color/avatarOrange}" />
+
+        <TextView
+            android:id="@+id/mtrl_list_item_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_toEndOf="@id/mtrl_list_item_icon"
+            android:maxLines="1"
+            android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            android:text="@{smsConversationsItem.address}"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+            android:fontFamily="@font/googlesans_medium_nohints"
+            android:textColor="@color/mtrl_list_item_tint" />
+
+        <TextView
+            android:id="@+id/mtrl_list_item_secondary_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mtrl_list_item_text"
+            android:layout_gravity="center_vertical"
+            android:layout_toEndOf="@id/mtrl_list_item_icon"
+            android:paddingEnd="16dp"
+            android:paddingBottom="8dp"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle1"
+            android:textColor="@color/mtrl_list_item_tint"
+            android:text="@{smsConversationsItem.snippet}"/>
+    </RelativeLayout>
+</layout>
